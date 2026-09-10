@@ -1,0 +1,37 @@
+.error-message-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  background-color: var(--color-danger-light);
+  color: var(--color-danger-dark);
+  border: 1px solid rgba(239, 68, 68, 0.18);
+  border-radius: var(--radius-md);
+  padding: 13px 16px;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  line-height: 1.5;
+  margin: var(--space-3) 0;
+  animation: errorShake 0.35s ease-in-out;
+}
+
+@keyframes errorShake {
+  0%, 100% { transform: translateX(0); }
+  25%       { transform: translateX(-5px); }
+  75%       { transform: translateX(5px); }
+}
+
+.error-message-icon {
+  flex-shrink: 0;
+  color: var(--color-danger);
+  margin-top: 1px;
+}
+
+.error-message-text {
+  flex: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .error-message-banner {
+    animation: none;
+  }
+}

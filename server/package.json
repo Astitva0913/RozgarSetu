@@ -1,0 +1,29 @@
+{
+  "name": "rozgaarsetu-server",
+  "version": "1.0.0",
+  "description": "RozgaarSetu backend API",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch-path=src src/index.js",
+    "test:integration": "node tests/integration.test.js",
+    "test:payment": "node tests/payment.test.js",
+    "test:workflow": "node tests/workflow.test.js",
+    "test": "node tests/integration.test.js && node tests/payment.test.js && node tests/workflow.test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "firebase-admin": "^14.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.9.1",
+    "razorpay": "^2.9.8"
+  }
+}

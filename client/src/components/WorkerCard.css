@@ -1,0 +1,287 @@
+.worker-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-5);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  position: relative;
+}
+
+.worker-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary);
+}
+
+.worker-card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.worker-card__avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  color: var(--color-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: var(--font-size-lg);
+  font-weight: 800;
+  box-shadow: var(--shadow-sm);
+  flex-shrink: 0;
+}
+
+.worker-card__identity {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.worker-card__name {
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.worker-verified-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  color: var(--color-success-dark, #047857);
+  background-color: var(--color-success-light, #ecfdf5);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  padding: 2px 8px;
+  border-radius: var(--radius-full, 9999px);
+}
+
+.worker-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+.worker-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.worker-meta-item svg {
+  color: var(--color-text-light);
+}
+
+.worker-meta-item--exp {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary-dark);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+}
+
+.worker-meta-item--worktype {
+  background-color: var(--color-secondary-light);
+  color: var(--color-secondary-dark);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.worker-card__bio {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin: 0;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.worker-card__skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: 4px;
+}
+
+.skill-tag {
+  font-size: var(--font-size-xs);
+  background-color: var(--color-background);
+  color: var(--color-text-muted);
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  font-weight: 600;
+}
+
+.skill-tag--more {
+  background-color: var(--color-surface);
+  color: var(--color-primary);
+  border-color: rgba(13, 148, 136, 0.2);
+}
+
+.worker-card__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: auto;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border);
+}
+
+.worker-select-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.worker-card__quick-contact {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.worker-contact-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--font-size-xs);
+  padding: 6px 12px;
+}
+
+/* Worker Detail / Hire Modal Styles */
+.worker-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  animation: modalFadeIn 0.2s ease-out;
+}
+
+.worker-modal {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-xl, 16px);
+  max-width: 580px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--color-border);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.worker-modal__header {
+  padding: var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.worker-modal__close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  line-height: 1;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast);
+}
+
+.worker-modal__close:hover {
+  color: var(--color-text);
+}
+
+.worker-modal__body {
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.worker-modal__contact-box {
+  background-color: var(--color-primary-light);
+  border: 1px solid rgba(13, 148, 136, 0.2);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.worker-modal__contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.worker-modal__contact-number {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-lg);
+  font-weight: 800;
+  color: var(--color-primary-dark);
+}
+
+.worker-modal__contact-buttons {
+  display: flex;
+  gap: var(--space-2);
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 480px) {
+  .worker-card__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+  .worker-card__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .worker-select-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .worker-card__quick-contact {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .worker-contact-icon-btn {
+    flex: 1;
+    justify-content: center;
+  }
+}

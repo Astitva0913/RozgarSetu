@@ -1,0 +1,197 @@
+.app-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.app-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.app-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--space-3);
+}
+
+.app-card__date {
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+}
+
+/* Status Badges */
+.app-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.app-status-badge .status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+}
+
+.app-status-badge--pending {
+  background-color: var(--color-warning-light);
+  color: var(--color-warning);
+}
+
+.app-status-badge--pending .status-dot {
+  background-color: var(--color-warning);
+}
+
+.app-status-badge--accepted {
+  background-color: var(--color-success-light);
+  color: var(--color-success-dark);
+}
+
+.app-status-badge--accepted .status-dot {
+  background-color: var(--color-success);
+}
+
+.app-status-badge--rejected {
+  background-color: var(--color-danger-light);
+  color: var(--color-danger-dark);
+}
+
+.app-status-badge--rejected .status-dot {
+  background-color: var(--color-danger);
+}
+
+/* Body content layout */
+.app-card__body {
+  width: 100%;
+}
+
+.app-card__job-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.app-card__job-title {
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.app-card__job-desc {
+  font-size: var(--font-size-sm);
+  margin: 0;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.app-card__job-meta {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+  font-size: var(--font-size-xs);
+  margin-top: var(--space-2);
+}
+
+/* Worker Identity layout */
+.app-card__worker-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.app-card__worker-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.app-card__worker-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  color: var(--color-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: var(--font-size-md);
+  font-weight: 800;
+  box-shadow: var(--shadow-sm);
+}
+
+.app-card__worker-name {
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  margin: 0;
+}
+
+.app-card__worker-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-xs);
+  margin-top: 2px;
+}
+
+.experience-badge {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary-dark);
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+}
+
+.app-card__worker-bio {
+  font-size: var(--font-size-sm);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.app-card__worker-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+/* Action panel buttons */
+.app-card__actions {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-4);
+  margin-top: var(--space-2);
+}
+
+.app-action-btn {
+  padding: 8px 16px;
+  font-size: var(--font-size-xs);
+  flex: 1;
+}
+
+@media (max-width: 480px) {
+  .app-card__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
