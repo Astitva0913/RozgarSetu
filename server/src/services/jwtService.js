@@ -18,11 +18,12 @@ export const verifyToken = (token) => {
 
 export const getCookieOptions = () => {
   const maxAgeMs = parseExpiryToMs(env.jwtExpiresIn);
+  const isProduction = env.nodeEnv === 'production';
 
   return {
     httpOnly: true,
-    secure: env.nodeEnv === 'production',
-    sameSite: 'lax',
+    secure: isProduction,
+    sameSite: isProduction ? 'none' : 'lax',
     maxAge: maxAgeMs,
   };
 };
@@ -52,9 +53,11 @@ export const setAuthCookie = (res, token) => {
 };
 
 export const clearAuthCookie = (res) => {
+  const isProduction = env.nodeEnv === 'production';
+
   res.clearCookie('token', {
     httpOnly: true,
-    secure: env.nodeEnv === 'production',
-    sameSite: 'lax',
+    secure: isProduction,
+    sameSite: isProduction ? 'none' : 'lax',
   });
 };

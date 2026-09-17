@@ -13,9 +13,26 @@ import { errorHandler, notFound } from './middleware/errorHandler.js';
 
 const app = express();
 
+// Trust reverse proxy (enables secure HTTPS cookies behind Render / Cloudflare proxies)
+app.set('trust proxy', 1);
+
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:3000',
+  ...(env.clientUrl ? env.clientUrl.split(',').map((url) => url.trim().replace(/\/$/, '')) : []),
+];
+
 app.use(
   cors({
-    origin: env.clientUrl,
+    origin: (origin, callback) => {
+      // Allow requests with no origin (such as server-to-server health checks, curl)
+      if (!origin) return callback(null, true);
+      const normalizedOrigin = origin.replace(/\/$/, '');
+      if (allowedOrigins.includes(normalizedOrigin) || env.nodeEnv !== 'production') {
+        return callback(null, true);
+      }
+      return callback(new Error(`CORS blocked for origin: ${origin}`));
+    },
     credentials: true,
   })
 );

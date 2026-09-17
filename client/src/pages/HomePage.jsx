@@ -10,7 +10,8 @@ function HomePage() {
   const [health, setHealth] = useState(null);
 
   useEffect(() => {
-    fetch('/api/v1/health')
+    const rawApiUrl = import.meta.env.VITE_API_URL ? import.meta.env.VITE_API_URL.replace(/\/$/, '') : '';
+    fetch(`${rawApiUrl}/api/v1/health`)
       .then((res) => {
         if (!res.ok) throw new Error('Health check failed');
         return res.json();
